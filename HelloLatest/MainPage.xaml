@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:HelloLatest"
+             x:Class="HelloLatest.MainPage"
+             BackgroundColor="Black">
+    <ContentPage.BindingContext>
+        <viewmodel:MainPageViewModel />
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+
+        <Label 
+             Grid.Row="0"
+               Text="JetBrains dotUltimate"
+               FontSize="20"
+               FontFamily="JetBrainsMonoBold"
+               TextColor="White"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               HorizontalTextAlignment="Center"
+               TextDecorations="Underline">
+        </Label>
+
+        <CarouselView
+            Grid.Row="1"
+            ItemsSource="{Binding Products}"
+            IndicatorView="ProductsIndicator"
+            HorizontalScrollBarVisibility="Never">
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        
+                        <Image
+                            Grid.Row="0"
+                            Source="{Binding ImageSrc}"
+                            Aspect="AspectFill"
+                            HeightRequest="150"
+                            WidthRequest="150"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Fill" />
+
+                        <StackLayout Grid.Row="1"
+                                     Spacing="10"
+                                     Margin="0, 30, 0, 0">
+                            <Label
+                                Text="{Binding Name}"
+                                FontFamily="JetBrainsMonoBold"
+                                FontSize="20"
+                                TextColor="White"
+                                HorizontalTextAlignment="Center" />
+
+                            <Label Text="{Binding Description}"
+                                   HorizontalTextAlignment="Start"
+                                   TextColor="White"
+                                   FontSize="12"
+                                   Padding="30, 0, 30, 0"
+                                   FontFamily="OpenSansRegular"
+                                   LineBreakMode="WordWrap" />
+                        </StackLayout>
+
+                        <Button Grid.Row="2"
+                                Text="LEARN MORE"
+                                FontFamily="JetBrainsMonoBold"
+                                TextColor="Black"
+                                BackgroundColor="White"
+                                FontSize="16"
+                                HorizontalOptions="Center"
+                                BindingContext="{Binding Url}"
+                                CornerRadius="5"
+                                Padding="5"
+                                VerticalOptions="End"
+                                Clicked="LearnMore" />
+
+                    </Grid>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView
+            Grid.Row="2"
+            x:Name="ProductsIndicator"
+            IndicatorColor="DimGray"
+            SelectedIndicatorColor="White"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"/>
+
+    </Grid>
+
+
+</ContentPage>
