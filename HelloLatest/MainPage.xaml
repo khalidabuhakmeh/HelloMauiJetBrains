@@ -36,7 +36,7 @@
                 <DataTemplate>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="180"/>
+                            <RowDefinition Height="300"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
@@ -45,10 +45,10 @@
                             Grid.Row="0"
                             Source="{Binding ImageSrc}"
                             Aspect="AspectFill"
-                            HeightRequest="150"
-                            WidthRequest="150"
+                            HeightRequest="250"
+                            WidthRequest="250"
                             HorizontalOptions="Center"
-                            VerticalOptions="Fill" />
+                            VerticalOptions="Center" />
 
                         <StackLayout Grid.Row="1"
                                      Spacing="10"
@@ -56,16 +56,18 @@
                             <Label
                                 Text="{Binding Name}"
                                 FontFamily="JetBrainsMonoBold"
-                                FontSize="20"
+                                FontSize="30"
                                 TextColor="White"
+                                VerticalOptions="Center"
                                 HorizontalTextAlignment="Center" />
 
                             <Label Text="{Binding Description}"
                                    HorizontalTextAlignment="Start"
                                    TextColor="White"
-                                   FontSize="12"
+                                   FontSize="16"
                                    Padding="30, 0, 30, 0"
                                    FontFamily="OpenSansRegular"
+                                   VerticalOptions="Center"
                                    LineBreakMode="WordWrap" />
                         </StackLayout>
 
@@ -78,7 +80,7 @@
                                 HorizontalOptions="Center"
                                 BindingContext="{Binding Url}"
                                 CornerRadius="5"
-                                Padding="5"
+                                Padding="10"
                                 VerticalOptions="End"
                                 Clicked="LearnMore" />
 
